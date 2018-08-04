@@ -63,7 +63,7 @@ IF DEFINED KUDU_SELECT_NODE_VERSION_CMD (
     SET /p NODE_EXE=<"%DEPLOYMENT_TEMP%\__nodeVersion.tmp"
     IF !ERRORLEVEL! NEQ 0 goto error
   )
-  
+
   IF EXIST "%DEPLOYMENT_TEMP%\__npmVersion.tmp" (
     SET /p NPM_JS_PATH=<"%DEPLOYMENT_TEMP%\__npmVersion.tmp"
     IF !ERRORLEVEL! NEQ 0 goto error
@@ -101,10 +101,18 @@ call :SelectNodeVersion
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd !NPM_CMD! install --production
+  call :ExecuteCmd !NPM_CMD! install --only=dev
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
 
+:: 4. Angular production build
+IF EXIST "%DEPLOYMENT_TARGET%\.angular-cli.json" (
+  pushd "%DEPLOYMENT_TARGET%"
+  call :ExecuteCmd ./node_modules/.bin/ng build --prod
+  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 
