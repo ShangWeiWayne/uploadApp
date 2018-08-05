@@ -1,6 +1,7 @@
 {
   "name": "upload-app",
   "version": "0.0.0",
+  "engines":{"node":"10.6.0"},
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
