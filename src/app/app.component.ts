@@ -12,15 +12,15 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
 
-    this.applicationRef.isStable.subscribe((s) => { // #1
-      if (s) { // #2
-        setInterval( t => {console.log('Ping'); } , 500);
-      } // #3
-    }); // #4
-    // If you uncomment 1-4 - service-worker will not run
+    // this.applicationRef.isStable.subscribe((s) => { // #1
+    //   if (s) { // #2
+    //     setInterval( t => {console.log('Ping'); } , 500);
+    //   } // #3
+    // }); // #4
+    // // If you uncomment 1-4 - service-worker will not run
 
-    this.applicationRef.isStable.subscribe(t => {
-      console.log('App stable: ' + t);
-    });
+    // this.applicationRef.isStable.subscribe(t => {
+    //   console.log('App stable: ' + t);
+    // });
   }
 }
