@@ -1,4 +1,5 @@
 import { Component, ApplicationRef, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Observable, interval } from 'rxjs';
 
 @Component({
@@ -8,10 +9,10 @@ import { Observable, interval } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'uploadApp';
+  username = '';
   constructor(private applicationRef: ApplicationRef) {
   }
   ngOnInit() {
-
     // this.applicationRef.isStable.subscribe((s) => { // #1
     //   if (s) { // #2
     //     setInterval( t => {console.log('Ping'); } , 500);
@@ -22,5 +23,8 @@ export class AppComponent implements OnInit {
     // this.applicationRef.isStable.subscribe(t => {
     //   console.log('App stable: ' + t);
     // });
+  }
+  inputChange(e) {
+      this.username = e.target.value;
   }
 }

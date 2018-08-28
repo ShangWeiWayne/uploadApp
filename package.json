@@ -8,7 +8,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:prod":"ng build --prod && lite-server --baseDir dist/uploadApp",
+    "start:prod": "ng build --prod && lite-server --baseDir dist/uploadApp",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -17,11 +17,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.1.0",
+    "@angular/cdk": "^6.4.3",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
     "@angular/core": "^6.1.0",
     "@angular/forms": "^6.1.0",
     "@angular/http": "^6.1.0",
+    "@angular/material": "^6.4.3",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/pwa": "^0.6.8",
