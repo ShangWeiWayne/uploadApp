@@ -32,6 +32,7 @@
     <link href="/assets/splash/apple_splash_1242.png" sizes="1242x2208" rel="apple-touch-startup-image" />
     <link href="/assets/splash/apple_splash_750.png" sizes="750x1334" rel="apple-touch-startup-image" />
     <link href="/assets/splash/apple_splash_640.png" sizes="640x1136" rel="apple-touch-startup-image" /> -->
+    
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="PWAApp-NG6">
@@ -46,5 +47,15 @@
   </head>
 <body>
   <app-root></app-root>
+  <script>
+  var url='http://www.baodu.com';  
+  var deviceAgent = navigator.userAgent;
+  var ios = deviceAgent.toLowerCase().match(/(iphone|ipod|ipad)/);
+  if(ios){
+      document.location.href=url;
+  }else{
+      window.open(url);
+  }
+  </script>
 </body>
 </html>
